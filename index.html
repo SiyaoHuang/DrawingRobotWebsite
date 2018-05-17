@@ -49,10 +49,11 @@
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#intro">Introduction</a></li>
             <li><a href="#obj">Project Objective</a></li>
-            <li><a href="#design">Design</a></li>
+            <li><a href="#design">Design and Testing</a></li>
             <li><a href="#drawings">Drawings</a></li>
             <li><a href="#testing">Testing</a></li>
-            <li><a href="#result">Result</a></li>
+            <li><a href="#result">Conclusions</a></li>
+            <li><a href="#future">Future Work</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -75,7 +76,7 @@
 
       <div style="text-align:center;">
               <h2>Introduction</h2>
-              <p style="text-align: left;padding: 0px 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lorem nulla, consectetur at leo vel, pretium bibendum nisl. Cras blandit quam a enim ultrices, eu convallis enim posuere. Donec eleifend enim sed purus consectetur, vitae cursus lectus varius. Vivamus consectetur felis nec est venenatis posuere. Phasellus vitae aliquet erat. In laoreet lacinia mollis. Quisque iaculis nisl fermentum pharetra lobortis. Donec rhoncus dui sem, ac molestie leo tristique vel. Phasellus in nibh feugiat, fringilla lectus in, elementum magna. Etiam quis dui condimentum, tempus ex in, dapibus est. Cras ut congue augue. Donec ac enim ex. Ut id tristique risus, vel porttitor quam. Sed ultricies enim eu nibh porttitor, vel sodales enim feugiat. Fusce volutpat venenatis magna ac ultrices. Curabitur eget urna ut nulla mattis convallis non eu diam.</p>
+              <p style="text-align: left;padding: 0px 30px;">Overall, we accomplished our objective: we implemented a small robot that could draw a picture based on input from a user interface. The robot itself has a three servos, two for the wheels and one for moving a pen up and down. The Pi camera tracks the movement of the robot by looking for three colored circles on top of the robot to determine its position and direction and the Raspberry Pi then uses this information to guide the robot from point to point. The camera can be placed (theoretically) in any orientation since we use perspective mapping to determine the 3D position of the robot. Additionally, the bot itself is standalone, requiring no external connections and has its own power supply as well as a Pi Zero. It wirelessly connects with the Raspberry Pi which communicates to the Pi Zero how the robot should move. With this system, the we are able to sketch user drawn shapes onto a paper. </p>
       </div>
 
     <hr id='obj'>
@@ -83,9 +84,11 @@
       <div class="row">
           <div class="col-md-4" style="text-align:center;">
           <img class="img-rounded" src="pics/drawing (11).jpg" alt="Generic placeholder image" width="240" height="240">
+          <h4>Project group picture</h4>
           </div>
           <div class="col-md-8" style="font-size:18px;">
           <h2>Project Objective:</h2>
+            <p style="text-align: left;padding: 0px 30px;">Our main objective for this project was to create a robot that could draw pictures accurately by using a camera to track its direction and position. We also wanted the robot to be fairly small so that it would fit comfortably on any size of paper as well as low cost and as simple as possible. Additionally, we wanted to provide users with some sort of interface which would display the current status of the robot as well as show a canvas of some sort on which the user could draw a picture which the robot would then draw on the paper. </p>
           <ul>
               <li>some important objectives.some important objectives.some important objectives.some important objectives.</li>
                 <li>some other important objectives.</li>
@@ -98,7 +101,13 @@
 
       <div style="text-align:center;">
               <h2>Design</h2>
-              <p style="text-align: left;padding: 0px 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lorem nulla, consectetur at leo vel, pretium bibendum nisl. Cras blandit quam a enim ultrices, eu convallis enim posuere. Donec eleifend enim sed purus consectetur, vitae cursus lectus varius. Vivamus consectetur felis nec est venenatis posuere. Phasellus vitae aliquet erat. In laoreet lacinia mollis. Quisque iaculis nisl fermentum pharetra lobortis. Donec rhoncus dui sem, ac molestie leo tristique vel. Phasellus in nibh feugiat, fringilla lectus in, elementum magna. Etiam quis dui condimentum, tempus ex in, dapibus est. Cras ut congue augue. Donec ac enim ex. Ut id tristique risus, vel porttitor quam. Sed ultricies enim eu nibh porttitor, vel sodales enim feugiat. Fusce volutpat venenatis magna ac ultrices. Curabitur eget urna ut nulla mattis convallis non eu diam.</p>
+              <div style="text-align:center">
+                <h3>overall</h3>
+                <p style="text-align: left;padding: 0px 30px;">Our main objective for this project was to create a robot that could draw pictures accurately by using a camera to track its direction and position. We also wanted the robot to be fairly small so that it would fit comfortably on any size of paper as well as low cost and as simple as possible. Additionally, we wanted to provide users with some sort of interface which would display the current status of the robot as well as show a canvas of some sort on which the user could draw a picture which the robot would then draw on the paper. </p>
+
+                <p style="text-align: left;padding: 0px 30px;">Our system works by first allowing the user to draw points on the PiTFT. When a point is drawn, it is automatically connected to the previous point with a line. After the user completes the drawing, the controller calibrates the perspective mapping software by having the robot move around in a predetermined fashion. Position of the robot is determined by a camera and three colored dots arranged in a triangle with a fixed distance of 1 inches between the centers of the dots. The drawn array of points is then sent to the controller which guides the robot from point to point, getting input from the perspective mapping software to determine the error in the bot’s trajectory and correct accordingly. The controller sends command packets to the Pi Zero (on the robot) via a socket connection to control the robot’s movements. Once the points are drawn, the user can decide to draw another picture for the robot to draw or quit the program. Each of these modules is described in detail below. </p>
+
+              </div>
       </div>
 
     <hr id='drawings'>
@@ -123,7 +132,14 @@
       </div>
 
     <hr>
+    <hr id='future'>
 
+      <div style="text-align:center;">
+              <h2>Future</h2>
+              <p style="text-align: left;padding: 0px 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lorem nulla, consectetur at leo vel, pretium bibendum nisl. Cras blandit quam a enim ultrices, eu convallis enim posuere. Donec eleifend enim sed purus consectetur, vitae cursus lectus varius. Vivamus consectetur felis nec est venenatis posuere. Phasellus vitae aliquet erat. In laoreet lacinia mollis. Quisque iaculis nisl fermentum pharetra lobortis. Donec rhoncus dui sem, ac molestie leo tristique vel. Phasellus in nibh feugiat, fringilla lectus in, elementum magna. Etiam quis dui condimentum, tempus ex in, dapibus est. Cras ut congue augue. Donec ac enim ex. Ut id tristique risus, vel porttitor quam. Sed ultricies enim eu nibh porttitor, vel sodales enim feugiat. Fusce volutpat venenatis magna ac ultrices. Curabitur eget urna ut nulla mattis convallis non eu diam.</p>
+      </div>
+
+    <hr>
     <div class="row" style="text-align:center;">
           <h2>Work Distribution</h2>
           <div style="text-align:center;">
@@ -170,132 +186,249 @@
 
       <div class="row">
               <h2>Code Appendix</h2>
-              <pre><code>
-// Hello ui.py
-import sys, time, pygame
-import math
-import os
-import RPi.GPIO as GPIO
-from controller import *
+              <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888">#Hello ui.py</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">sys</span><span style="color: #333333">,</span> <span style="color: #0e84b5; font-weight: bold">time</span><span style="color: #333333">,</span> <span style="color: #0e84b5; font-weight: bold">pygame</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">math</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">os</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">RPi.GPIO</span> <span style="color: #008800; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">GPIO</span>
+<span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">controller</span> <span style="color: #008800; font-weight: bold">import</span> <span style="color: #333333">*</span>
 
-os.putenv('SDL_VIDEODRIVER', 'fbcon') # Display on piTFT
-os.putenv('SDL_FBDEV', '/dev/fb1')
-os.putenv('SDL_MOUSEDRV', 'TSLIB')    # Track mouse clicks
-os.putenv('SDL_MOUSEDEV', '/dev/input/touchscreen')
+os<span style="color: #333333">.</span>putenv(<span style="background-color: #fff0f0">&#39;SDL_VIDEODRIVER&#39;</span>, <span style="background-color: #fff0f0">&#39;fbcon&#39;</span>) <span style="color: #888888"># Display on piTFT</span>
+os<span style="color: #333333">.</span>putenv(<span style="background-color: #fff0f0">&#39;SDL_FBDEV&#39;</span>, <span style="background-color: #fff0f0">&#39;/dev/fb1&#39;</span>)
+os<span style="color: #333333">.</span>putenv(<span style="background-color: #fff0f0">&#39;SDL_MOUSEDRV&#39;</span>, <span style="background-color: #fff0f0">&#39;TSLIB&#39;</span>)    <span style="color: #888888"># Track mouse clicks</span>
+os<span style="color: #333333">.</span>putenv(<span style="background-color: #fff0f0">&#39;SDL_MOUSEDEV&#39;</span>, <span style="background-color: #fff0f0">&#39;/dev/input/touchscreen&#39;</span>)
 
-# timer
-start_time = time.time()
+<span style="color: #888888"># timer</span>
+start_time <span style="color: #333333">=</span> time<span style="color: #333333">.</span>time()
 
-# Initialize GPIO pins
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+<span style="color: #888888"># Initialize GPIO pins</span>
+GPIO<span style="color: #333333">.</span>setmode(GPIO<span style="color: #333333">.</span>BCM)
+GPIO<span style="color: #333333">.</span>setup(<span style="color: #0000DD; font-weight: bold">17</span>, GPIO<span style="color: #333333">.</span>IN, pull_up_down<span style="color: #333333">=</span>GPIO<span style="color: #333333">.</span>PUD_UP)
+GPIO<span style="color: #333333">.</span>setup(<span style="color: #0000DD; font-weight: bold">22</span>, GPIO<span style="color: #333333">.</span>IN, pull_up_down<span style="color: #333333">=</span>GPIO<span style="color: #333333">.</span>PUD_UP)
+GPIO<span style="color: #333333">.</span>setup(<span style="color: #0000DD; font-weight: bold">23</span>, GPIO<span style="color: #333333">.</span>IN, pull_up_down<span style="color: #333333">=</span>GPIO<span style="color: #333333">.</span>PUD_UP)
+GPIO<span style="color: #333333">.</span>setup(<span style="color: #0000DD; font-weight: bold">27</span>, GPIO<span style="color: #333333">.</span>IN, pull_up_down<span style="color: #333333">=</span>GPIO<span style="color: #333333">.</span>PUD_UP)
 
-pygame.init()
-pygame.mouse.set_visible(True)
+pygame<span style="color: #333333">.</span>init()
+pygame<span style="color: #333333">.</span>mouse<span style="color: #333333">.</span>set_visible(<span style="color: #007020">True</span>)
 
-size = width, height = 320, 240
-black = 0, 0, 0
-white = 255, 255, 255
+size <span style="color: #333333">=</span> width, height <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">320</span>, <span style="color: #0000DD; font-weight: bold">240</span>
+black <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">0</span>
+white <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">255</span>, <span style="color: #0000DD; font-weight: bold">255</span>, <span style="color: #0000DD; font-weight: bold">255</span>
 
-screen = pygame.display.set_mode(size)
-my_font = pygame.font.Font(None, 25)
+screen <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>display<span style="color: #333333">.</span>set_mode(size)
+my_font <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>font<span style="color: #333333">.</span>Font(<span style="color: #007020">None</span>, <span style="color: #0000DD; font-weight: bold">25</span>)
 
-distance = 62
+distance <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">62</span>
 
-sqr_surface = my_font.render("Clear", True, black)
-sqr_pos = sqr_x, left_y = 290, 40
-sqr_rect = sqr_surface.get_rect(center=sqr_pos)
+sqr_surface <span style="color: #333333">=</span> my_font<span style="color: #333333">.</span>render(<span style="background-color: #fff0f0">&quot;Clear&quot;</span>, <span style="color: #007020">True</span>, black)
+sqr_pos <span style="color: #333333">=</span> sqr_x, left_y <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">290</span>, <span style="color: #0000DD; font-weight: bold">40</span>
+sqr_rect <span style="color: #333333">=</span> sqr_surface<span style="color: #333333">.</span>get_rect(center<span style="color: #333333">=</span>sqr_pos)
 
-sq_surface = my_font.render("Quit", True, black)
-sq_rect = sq_surface.get_rect(center=sqr_pos)
+sq_surface <span style="color: #333333">=</span> my_font<span style="color: #333333">.</span>render(<span style="background-color: #fff0f0">&quot;Quit&quot;</span>, <span style="color: #007020">True</span>, black)
+sq_rect <span style="color: #333333">=</span> sq_surface<span style="color: #333333">.</span>get_rect(center<span style="color: #333333">=</span>sqr_pos)
 
-done_surface = my_font.render("Done", True, black)
-done_pos = done_x, done_y = 290, 40 + distance
-done_rect = done_surface.get_rect(center=done_pos)
+done_surface <span style="color: #333333">=</span> my_font<span style="color: #333333">.</span>render(<span style="background-color: #fff0f0">&quot;Done&quot;</span>, <span style="color: #007020">True</span>, black)
+done_pos <span style="color: #333333">=</span> done_x, done_y <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">290</span>, <span style="color: #0000DD; font-weight: bold">40</span> <span style="color: #333333">+</span> distance
+done_rect <span style="color: #333333">=</span> done_surface<span style="color: #333333">.</span>get_rect(center<span style="color: #333333">=</span>done_pos)
 
-undo_surface = my_font.render("Undo", True, black)
-undo_pos = undo_x, undo_y = 290, 40 + 2*distance
-undo_rect = undo_surface.get_rect(center=undo_pos)
+undo_surface <span style="color: #333333">=</span> my_font<span style="color: #333333">.</span>render(<span style="background-color: #fff0f0">&quot;Undo&quot;</span>, <span style="color: #007020">True</span>, black)
+undo_pos <span style="color: #333333">=</span> undo_x, undo_y <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">290</span>, <span style="color: #0000DD; font-weight: bold">40</span> <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">*</span>distance
+undo_rect <span style="color: #333333">=</span> undo_surface<span style="color: #333333">.</span>get_rect(center<span style="color: #333333">=</span>undo_pos)
 
-redo_surface = my_font.render("Redo", True, black)
-redo_pos = redo_x, redo_y = 290, 40 + 3*distance
-redo_rect = redo_surface.get_rect(center=redo_pos)
+redo_surface <span style="color: #333333">=</span> my_font<span style="color: #333333">.</span>render(<span style="background-color: #fff0f0">&quot;Redo&quot;</span>, <span style="color: #007020">True</span>, black)
+redo_pos <span style="color: #333333">=</span> redo_x, redo_y <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">290</span>, <span style="color: #0000DD; font-weight: bold">40</span> <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">3</span><span style="color: #333333">*</span>distance
+redo_rect <span style="color: #333333">=</span> redo_surface<span style="color: #333333">.</span>get_rect(center<span style="color: #333333">=</span>redo_pos)
 
-show_buttons = True
-points = []
-pointsredo = []
-start = time.time()
-c = Controller()
-timer = 0
-while True:
-	if not GPIO.input(17):
-                if points == []:
-                    break
-		points = []
-		pointsredo = []
-		time.sleep(0.2)
-	if not GPIO.input(22):
-		c.drawPoints(points[::-1])
-	if not GPIO.input(23):
-		if points != []:
-			pointsredo = [points[0]] + pointsredo
-			del points[0]
-		time.sleep(0.2)
-	if not GPIO.input(27):
-		if pointsredo != []:
-			points = [pointsredo[0]] + points
-			del pointsredo[0]
-		time.sleep(0.2)
-	for event in pygame.event.get():
-		if event.type == pygame.QUIT:
-			sys.exit()
-		if event.type == pygame.MOUSEBUTTONUP:
-			show_buttons = False
-			timer = 100
-			x, y = pygame.mouse.get_pos()
-			dist = 20
-			for i in points:
-				xi, yi = i
-				if ((xi - x)**2 + (yi - y)**2)**.5 < dist:
-					x, y = xi, yi
-					break
-			points = [(x, y)] + points
-			pointsredo = []
-			print x, y
+show_buttons <span style="color: #333333">=</span> <span style="color: #007020">True</span>
+points <span style="color: #333333">=</span> []
+pointsredo <span style="color: #333333">=</span> []
+start <span style="color: #333333">=</span> time<span style="color: #333333">.</span>time()
+c <span style="color: #333333">=</span> Controller()
+timer <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+<span style="color: #008800; font-weight: bold">while</span> <span style="color: #007020">True</span>:
+	<span style="color: #008800; font-weight: bold">if</span> <span style="color: #000000; font-weight: bold">not</span> GPIO<span style="color: #333333">.</span>input(<span style="color: #0000DD; font-weight: bold">17</span>):
+                <span style="color: #008800; font-weight: bold">if</span> points <span style="color: #333333">==</span> []:
+                    <span style="color: #008800; font-weight: bold">break</span>
+		points <span style="color: #333333">=</span> []
+		pointsredo <span style="color: #333333">=</span> []
+		time<span style="color: #333333">.</span>sleep(<span style="color: #6600EE; font-weight: bold">0.2</span>)
+	<span style="color: #008800; font-weight: bold">if</span> <span style="color: #000000; font-weight: bold">not</span> GPIO<span style="color: #333333">.</span>input(<span style="color: #0000DD; font-weight: bold">22</span>):
+		c<span style="color: #333333">.</span>drawPoints(points[::<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>])
+	<span style="color: #008800; font-weight: bold">if</span> <span style="color: #000000; font-weight: bold">not</span> GPIO<span style="color: #333333">.</span>input(<span style="color: #0000DD; font-weight: bold">23</span>):
+		<span style="color: #008800; font-weight: bold">if</span> points <span style="color: #333333">!=</span> []:
+			pointsredo <span style="color: #333333">=</span> [points[<span style="color: #0000DD; font-weight: bold">0</span>]] <span style="color: #333333">+</span> pointsredo
+			<span style="color: #008800; font-weight: bold">del</span> points[<span style="color: #0000DD; font-weight: bold">0</span>]
+		time<span style="color: #333333">.</span>sleep(<span style="color: #6600EE; font-weight: bold">0.2</span>)
+	<span style="color: #008800; font-weight: bold">if</span> <span style="color: #000000; font-weight: bold">not</span> GPIO<span style="color: #333333">.</span>input(<span style="color: #0000DD; font-weight: bold">27</span>):
+		<span style="color: #008800; font-weight: bold">if</span> pointsredo <span style="color: #333333">!=</span> []:
+			points <span style="color: #333333">=</span> [pointsredo[<span style="color: #0000DD; font-weight: bold">0</span>]] <span style="color: #333333">+</span> points
+			<span style="color: #008800; font-weight: bold">del</span> pointsredo[<span style="color: #0000DD; font-weight: bold">0</span>]
+		time<span style="color: #333333">.</span>sleep(<span style="color: #6600EE; font-weight: bold">0.2</span>)
+	<span style="color: #008800; font-weight: bold">for</span> event <span style="color: #000000; font-weight: bold">in</span> pygame<span style="color: #333333">.</span>event<span style="color: #333333">.</span>get():
+		<span style="color: #008800; font-weight: bold">if</span> event<span style="color: #333333">.</span>type <span style="color: #333333">==</span> pygame<span style="color: #333333">.</span>QUIT:
+			sys<span style="color: #333333">.</span>exit()
+		<span style="color: #008800; font-weight: bold">if</span> event<span style="color: #333333">.</span>type <span style="color: #333333">==</span> pygame<span style="color: #333333">.</span>MOUSEBUTTONUP:
+			show_buttons <span style="color: #333333">=</span> <span style="color: #007020">False</span>
+			timer <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">100</span>
+			x, y <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>mouse<span style="color: #333333">.</span>get_pos()
+			dist <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">20</span>
+			<span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> points:
+				xi, yi <span style="color: #333333">=</span> i
+				<span style="color: #008800; font-weight: bold">if</span> ((xi <span style="color: #333333">-</span> x)<span style="color: #333333">**</span><span style="color: #0000DD; font-weight: bold">2</span> <span style="color: #333333">+</span> (yi <span style="color: #333333">-</span> y)<span style="color: #333333">**</span><span style="color: #0000DD; font-weight: bold">2</span>)<span style="color: #333333">**.</span><span style="color: #0000DD; font-weight: bold">5</span> <span style="color: #333333">&lt;</span> dist:
+					x, y <span style="color: #333333">=</span> xi, yi
+					<span style="color: #008800; font-weight: bold">break</span>
+			points <span style="color: #333333">=</span> [(x, y)] <span style="color: #333333">+</span> points
+			pointsredo <span style="color: #333333">=</span> []
+			<span style="color: #008800; font-weight: bold">print</span> x, y
 
-	if not show_buttons:
-		if timer == 0:
-			show_buttons = True
-		timer -= 1
+	<span style="color: #008800; font-weight: bold">if</span> <span style="color: #000000; font-weight: bold">not</span> show_buttons:
+		<span style="color: #008800; font-weight: bold">if</span> timer <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+			show_buttons <span style="color: #333333">=</span> <span style="color: #007020">True</span>
+		timer <span style="color: #333333">-=</span> <span style="color: #0000DD; font-weight: bold">1</span>
 
-	screen.fill(white)
-	for i in points:
-		pygame.draw.circle(screen, black, i, 2)
-	if len(points) > 1:
-		pygame.draw.lines(screen, black, False, points, 2)
+	screen<span style="color: #333333">.</span>fill(white)
+	<span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> points:
+		pygame<span style="color: #333333">.</span>draw<span style="color: #333333">.</span>circle(screen, black, i, <span style="color: #0000DD; font-weight: bold">2</span>)
+	<span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">len</span>(points) <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">1</span>:
+		pygame<span style="color: #333333">.</span>draw<span style="color: #333333">.</span>lines(screen, black, <span style="color: #007020">False</span>, points, <span style="color: #0000DD; font-weight: bold">2</span>)
 
-	if show_buttons:
-                if points == []:
-                        screen.blit(sq_surface, sq_rect)
-                else:
-		        screen.blit(sqr_surface, sqr_rect)
-		screen.blit(done_surface, done_rect)
-		screen.blit(undo_surface, undo_rect)
-		screen.blit(redo_surface, redo_rect)
-	pygame.display.flip()
+	<span style="color: #008800; font-weight: bold">if</span> show_buttons:
+                <span style="color: #008800; font-weight: bold">if</span> points <span style="color: #333333">==</span> []:
+                        screen<span style="color: #333333">.</span>blit(sq_surface, sq_rect)
+                <span style="color: #008800; font-weight: bold">else</span>:
+		        screen<span style="color: #333333">.</span>blit(sqr_surface, sqr_rect)
+		screen<span style="color: #333333">.</span>blit(done_surface, done_rect)
+		screen<span style="color: #333333">.</span>blit(undo_surface, undo_rect)
+		screen<span style="color: #333333">.</span>blit(redo_surface, redo_rect)
+	pygame<span style="color: #333333">.</span>display<span style="color: #333333">.</span>flip()
 
-	time.sleep(0.01)
+	time<span style="color: #333333">.</span>sleep(<span style="color: #6600EE; font-weight: bold">0.01</span>)
 
-GPIO.cleanup()
-sys.exit()
+GPIO<span style="color: #333333">.</span>cleanup()
+sys<span style="color: #333333">.</span>exit()
+</pre></td></tr></table></div>
 
-              </code></pre>
       </div>
 
-    </div><!-- /.container -->
 
 
 
